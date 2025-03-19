@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vapes</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('fondovapeo.png');
+            background-size: 300px 300px; /* ancho alto */
+            background-position: center;
+        }
+
+        header {
+    position: fixed; /* Fija el header en la parte superior */
+    top: 0;
+    left: 0;
+    width: 100%; /* Ocupa todo el ancho */
+    background: #000; /* Fondo negro */
+    color: white;
+    padding: 5px 0;
+    text-align: center;
+    z-index: 1000; /* Asegura que esté por encima del resto del contenido */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Sombra para darle un efecto elevado */
+    transition: transform 0.3s ease-in-out; /* Transición suave para mostrar/ocultar */
+}
+
+/* Clase para ocultar el header */
+header.hidden {
+    transform: translateY(-100%); /* Oculta el header desplazándolo hacia arriba */
+}
+
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 20px; /* Aumenta el espacio entre los elementos del menú */
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+        body {
+    padding-top: 100px; /* Ajusta según la altura del header */
+}
+#productos {
+    margin-top: 50px; /* Añade más espacio entre el header y la sección de productos */
+}
+        nav ul li a:hover {
+            background-color: #333;
+        }
+
+        #inicio {
+            background-image: url('fondovapeo.png');
+            background-size: 300px 300px; /* ancho alto */
+            background-position: center;
+            color: white;
+            height: 80vh; /* Altura reducida */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        #inicio h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        #inicio p {
+            font-size: 24px;
+            margin-bottom: 40px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .seccion {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .seccion h2 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #ffffff;
+        }
+
+        .seccion p {
+            font-size: 18px;
+            text-align: center;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .producto-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            
+        }
+
+        .producto {
+            cursor: pointer;
+            background: white;
+            border: 1px solid #141e57;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+            padding: 20px;
+            max-width: 300px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .producto:hover {
+            transform: translateY(-5px); /* Efecto flotante */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .producto img {
+            width: 100%;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .producto h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .producto p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .producto button {
+            background-color: #000; /* Botón de color llamativo */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .producto button:hover {
+            background-color: #000;
+        }
+
+        
+        footer {
+            background: #000;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            
+        }
+        .fondocum{
+            background-color: #1c2b7e; 
+             border-radius: 10px; 
+            padding: 1px; 
+    
+        }
+        .click{
+            cursor: pointer;
+        }
+
+        
+        .producto {
+        position: relative;
+        width: 200px;
+        text-align: center;
+    }
+    .carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 225px; /* Ajusta la altura del carrusel */
+    overflow: hidden;
+}
+
+.carousel img {
+    width: 200px;  /* Aumenta este valor para hacer las imágenes más grandes */
+    height: 200px; /* Ajusta esto para cambiar la altura */
+    object-fit: contain;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centra la imagen */
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.carousel img.active {
+    opacity: 1;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 75%; /* Ahora están un poco más abajo */
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    z-index: 10; /* Asegura que los botones estén encima de las imágenes */
+}
+
+.prev {
+    left: 5px;
+}
+
+.next {
+    right: 5px;
+}
+
+    </style>
+
+<script>
+
+    //CODIGO PARA EL HEADER 
+
+    
+    let lastScrollTop = 0; // Variable para almacenar la última posición del scroll
+
+    window.addEventListener("scroll", function() {
+        let header = document.querySelector("header");
+        let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (currentScroll > lastScrollTop) {
+            // Si el scroll va hacia abajo
+            header.classList.add("hidden");
+        } else {
+            // Si el scroll va hacia arriba
+            header.classList.remove("hidden");
+        }
+        
+        // Actualizamos la última posición del scroll
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    });
+
+
+
+    //CODIGO PARA LAS IMAGENES 
+
+    document.addEventListener("DOMContentLoaded", function() {
+    // Seleccionar todos los carruseles
+    const carousels = document.querySelectorAll('.carousel');
+    
+    carousels.forEach(carousel => {
+        const images = carousel.querySelectorAll('img');  // Seleccionar las imágenes dentro de cada carrusel
+        const prevButton = carousel.parentElement.querySelector('.prev');  // Obtener el botón 'prev' dentro del carrusel
+        const nextButton = carousel.parentElement.querySelector('.next');  // Obtener el botón 'next' dentro del carrusel
+        
+        let index = 0;  // Índice de la imagen activa
+
+        // Función para cambiar la imagen activa
+        const showImage = (i) => {
+            images.forEach(img => img.classList.remove('active'));  // Eliminar la clase 'active' de todas las imágenes
+            images[i].classList.add('active');  // Agregar la clase 'active' a la imagen actual
+        };
+
+        // Evento para el botón 'prev'
+        prevButton.addEventListener('click', () => {
+            index = (index - 1 + images.length) % images.length;  // Ir a la imagen anterior
+            showImage(index);  // Mostrar la imagen
+        });
+
+        // Evento para el botón 'next'
+        nextButton.addEventListener('click', () => {
+            index = (index + 1) % images.length;  // Ir a la imagen siguiente
+            showImage(index);  // Mostrar la imagen
+        });
+
+        showImage(index);  // Mostrar la primera imagen cuando se carga la página
+    });
+});
+
+
+</script>
+</head>
+<body>
+    <header>
+        <img src="descarga (2).png" alt="" width="250">
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="Sobre Nosotros.html">Nosotros</a></li>
+                <li><a href="Contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="productos" class="seccion">
+
+        <div class="fondocum">
+        <h2>Productos Destacados</h2>
+         </div> 
+         &nbsp;
+
+        <div class="producto-grid">     
+            <div class="producto">
+                <div class="carousel">
+                    <img src="https://smokeshopmex.com/wp/wp-content/uploads/2023/10/RAINBOW-CLOUDZ.jpg" class="active" alt="Producto 1">
+                    <img src="https://mypodseurope.com/assets/uploads/product/funky-republic-ti7000-peach2.webp" alt="Producto 2">
+                    <img src="https://vapeomex.com/wp-content/uploads/2023/08/feb23_funky-republic_sampler-image_600x600_b45e89bd-a8ca-4ebe-8692-7802727e14a2_600x.png" alt="Producto 3">
+                </div>
+                <button class="prev">❮</button>
+                <button class="next">❯</button>
+                <h3>Funky Republic </h3>
+                <p>7,000 hits</p>
+                <p>$150</p>
+                <a href="Waka Nova.html"><button>Informacion</button></a>
+            </div>
+            <div class="producto">
+                <div class="carousel">
+                    <img src="https://provapes.com.mx/wp-content/uploads/2023/06/lost_vape_orion_bar_7500_disposable_-_peach_mango_watermelon_1120x.webp" class="active" alt="Producto 1">
+                    <img src="https://provapes.com.mx/wp-content/uploads/2023/06/LostVapeOrionBar7500-Disposable-StrawberryKiwi_grande.webp" alt="Producto 2">
+                    <img src="https://ecoremates.com/wp-content/uploads/2025/01/Orion-Bar.webp" alt="Producto 3">
+                </div>
+                <button class="prev">❮</button>
+                <button class="next">❯</button>
+                <h3>Lost Vape</h3>
+                <p>7,500 hits</p>
+                <p>$150</p>
+                <a href="V-Touch.html"><button>Informacion</button></a>
+            </div>
+            <div class="producto">
+                <div class="carousel">
+                    <img src="https://donmaskking.com/cdn/shop/files/Mount-Splash_RabBeats-Touch_600x600_600x_b835cd37-e1a4-4537-ac19-427376eb4949.webp?v=1729929969" class="active" alt="Producto 1">
+                    <img src="https://lavaperia.com/wp-content/uploads/2024/09/WhatsApp-Image-2024-09-12-at-11.03.32-AM.jpeg" alt="Producto 2">
+                    <img src="https://cdn11.bigcommerce.com/s-dl52lpq/images/stencil/1280x1280/products/6581/36817/rabbeats-rc10000_proc__25698.1696033335.jpg?c=2&imbypass=on" alt="Producto 3">
+                </div>
+                <button class="prev">❮</button>
+                <button class="next">❯</button>
+                <h3>Rabeatts</h3>
+                <p>10,000 hits</p>
+                <p>$200</p>
+                <a href="Waka 28k.html"><button>Informacion</button></a>
+            </div>
+            <div class="producto">
+                <div class="carousel">
+                    <img src="https://vapormexicano.com/cdn/shop/files/snoopy_smok_extra_tank_2_15000_disposable_-_default.png?v=1729751090" class="active" alt="Producto 1">
+                    <img src="https://www.xhalecity.com/cdn/shop/files/Snoopy-Extra-Tank-15000.jpg?v=1692726914" alt="Producto 2">
+                    <img src="https://www.xhalecity.com/cdn/shop/products/AllImage_ceb4e0e1-5728-4c73-b569-e939580d6174.jpg?v=1692726914&width=480" alt="Producto 3">
+                </div>
+                <button class="prev">❮</button>
+                <button class="next">❯</button>
+                <h3>Snoopy Smoke</h3>
+                <p>15,000 hits</p>
+                <p>$250</p>
+                <a href="Elfbar.html"><button>Informacion</button></a>
+            </div>
+            <div class="producto">
+                <div class="carousel">
+                    <img src="https://jequestore.com/cdn/shop/files/Disenosintitulo-32.png?v=1727551682" class="active" alt="Producto 1">
+                    <img src="https://northdisposable.com/cdn/shop/files/Juice_King_A18000_Disposable_fucking_fab.jpg?v=1721064653" alt="Producto 2">
+                    <img src="https://image.vapesourcing.com/images/202405/juice-king-a18000-0.jpg" alt="Producto 3">
+                </div>
+                <button class="prev">❮</button>
+                <button class="next">❯</button>
+                <h3>Juice King</h3>
+                <p>18,000 hits</p>
+                <p>$275</p>
+                <a href="Waka 15k.html"><button>Informacion</button></a>
+            </div>
+            <div class="producto">
+                <div class="carousel">
+                    <img src="https://gibihits.com/wp-content/uploads/2024/11/Watermelon_Ice-MOTI-Gibihits.webp" class="active" alt="Producto 1">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9ELlzxN1HpVG_4q2Uprv7MisTPFoRCDom0w&s" alt="Producto 2">
+                    <img src="https://www.maskkingmayoreo.store/cdn/shop/files/imagen_2024-09-27_150430728.png?v=1727471073&width=1445" alt="Producto 3">
+                </div>
+                <button class="prev">❮</button>
+                <button class="next">❯</button>
+                <h3>Moti </h3>
+                <p>20,000 hits</p>
+                <p>$300</p>
+                <a href="Waka 18k.html"><button>Informacion</button></a>
+            </div>
+            <div class="producto">
+                <div class="carousel">
+                    <img src="https://gibihits.com/wp-content/uploads/2024/11/TRUE-STORY-20K-5.jpg" class="active" alt="Producto 1">
+                    <img src="https://gibihits.com/wp-content/uploads/2024/11/TRUE-STORY-20K-2.jpg" alt="Producto 2">
+                    <img src="https://vapelab.mx/wp-content/uploads/2024/11/combined_TrueStory20K.webp" alt="Producto 3">
+                </div>
+                <button class="prev">❮</button>
+                <button class="next">❯</button>
+                <h3>True Story </h3>
+                <p>20,000 hits</p>
+                <p>$300</p>
+                <a href="Wave Turbo.html"><button>Informacion</button></a>
+            </div>
+            <div class="producto">
+                <div class="carousel">
+                    <img src="https://vapexico.com/wp-content/uploads/2024/12/kangvapesmart-tc25_f2b9ab24-0515-4d42-a715-9e157b498d56.webp" class="active" alt="Producto 1">
+                    <img src="https://www.maskkingmayoreo.store/cdn/shop/files/Kangvape-Onee-Stick-Smart-TC25K-vape.webp?v=1726810163&width=1445" alt="Producto 2">
+                    <img src="https://www.maskkingmayoreo.store/cdn/shop/files/kangvape-tc25k-1_2c4c9898-a331-47b0-94a9-b6f5e7dc7723.jpg?v=1726810139&width=1445" alt="Producto 3">
+                </div>
+                <button class="prev">❮</button>
+                <button class="next">❯</button>
+                <h3>Smart TC</h3>
+                <p>25,000 hits</p>
+                <p>$350</p>
+                <a href="Wonder G20 Touch.html"><button>Informacion</button></a>
+            </div>
+            <div class="producto">
+                <div class="carousel">
+                    <img src="https://ricovapestore.com/cdn/shop/files/4583D589-C8DE-4CE7-B5A3-2D7E347028E8.jpg?v=1729864867&width=1445" class="active" alt="Producto 1">
+                    <img src="https://static.wixstatic.com/media/1a8204_f2c50e110bf249fb8fb525ca5cbe9669~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg" alt="Producto 2">
+                    <img src="https://image.vapesourcing.com/imagecache/800/images/202407/swype-30k.jpg" alt="Producto 3">
+                </div>
+                <button class="prev">❮</button>
+                <button class="next">❯</button>
+                <h3>Swype</h3>
+                <p>30,000 hits</p>
+                <p>$400</p>
+                <a href="Waka 10k.html"><button>Informacion</button></a>
+            </div>
+            <div class="producto">
+                <div class="carousel">
+                    <img src="https://jequestore.com/cdn/shop/files/EQUATOR.webp?v=1733100452" class="active" alt="Producto 1">
+                    <img src="https://hitsandpuffs.com/cdn/shop/files/equator_eq30000_cool_mint_master_wholesalesale_distributor_near_me_shipping_best_vape_30000_puffs_wholesaler.webp?v=1731398604&width=1445" alt="Producto 2">
+                    <img src="https://vapesocietysupplies.com/wp-content/uploads/2024/04/Equator-EQ30000-Disposable-Vape-_-30k-Puffs.webp" alt="Producto 3">
+                </div>
+                <button class="prev">❮</button>
+                <button class="next">❯</button>
+                <h3>Equator</h3>
+                <p>30,000 hits</p>
+                <p>$400</p>
+                <a href="Cold Steel.html"><button>Información</button></a>
+            </div>
+            <div class="producto">
+                <div class="carousel">
+                    <img src="https://thehits.mx/cdn/shop/files/F9DA6009-9C04-4D4A-9D8B-B4454DC425A9.png?v=1724982772&width=1946" class="active" alt="Producto 1">
+                    <img src="https://vapecityy.com/cdn/shop/files/7E1B2A15-221D-4ED7-B2A6-B0929E593BC2.png?v=1726496171&width=1920" alt="Producto 2">
+                    <img src="https://d2j6dbq0eux0bg.cloudfront.net/images/54926271/4787722557.png" alt="Producto 3">
+                </div>
+                <button class="prev">❮</button>
+                <button class="next">❯</button><h3>CT</h3>
+                <p>??? hits</p>
+                <p>$???</p>
+                <a href="tupu.html"><button>Proximamente</button></a>
+            </div>
+            
+            
+            <!-- Agrega más productos según sea necesario -->
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Vape Store. Todos los derechos reservados.</p>
+        
+    </footer>
+</body>
+</html>

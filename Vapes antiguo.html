@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vapes</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('fondovapeo.png');
+            background-size: 300px 300px; /* ancho alto */
+            background-position: center;
+        }
+
+        header {
+            background: #000; /* Fondo con un poco de transparencia */
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+    
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 20px; /* Aumenta el espacio entre los elementos del menú */
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        nav ul li a:hover {
+            background-color: #333;
+        }
+
+        #inicio {
+            background-image: url('fondovapeo.png');
+            background-size: 300px 300px; /* ancho alto */
+            background-position: center;
+            color: white;
+            height: 80vh; /* Altura reducida */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        #inicio h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        #inicio p {
+            font-size: 24px;
+            margin-bottom: 40px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .seccion {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .seccion h2 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #ffffff;
+        }
+
+        .seccion p {
+            font-size: 18px;
+            text-align: center;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .producto-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            
+        }
+
+        .producto {
+            cursor: pointer;
+            background: white;
+            border: 1px solid #141e57;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+            padding: 20px;
+            max-width: 300px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .producto:hover {
+            transform: translateY(-5px); /* Efecto flotante */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .producto img {
+            width: 100%;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .producto h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .producto p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .producto button {
+            background-color: #FF5733; /* Botón de color llamativo */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .producto button:hover {
+            background-color: #FF6F4A;
+        }
+
+        footer {
+            background: #000;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            
+        }
+        .fondocum{
+            background-color: #1c2b7e; 
+             border-radius: 10px; 
+            padding: 1px; 
+    
+        }
+        .click{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="descarga (2).png" alt="" width="250">
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="Sobre Nosotros.html">Nosotros</a></li>
+                <li><a href="Contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="productos" class="seccion">
+
+        <div class="fondocum">
+        <h2>Productos Destacados</h2>
+         </div> 
+         &nbsp;
+
+        <div class="producto-grid">
+            <div class="producto">
+                <img src="https://tuhumo.com/cdn/shop/files/1_d6c11b82-fef0-476b-a40c-7e38515f3ff0.png?v=1700415517&width=600" width="150" >
+                <h3>Funky Republic </h3>
+                <p>7,000 hits</p>
+                <p>$150</p>
+                <a href="Waka Nova.html"><button>Informacion</button></a>
+            </div>
+            <div class="producto">
+                <img src="https://tuhumo.com/cdn/shop/files/Diseno_sin_titulo-88.png?v=1740505078&width=600" width="150" alt="Producto 2">
+                <h3>Lost Vape</h3>
+                <p>7,500 hits</p>
+                <p>$150</p>
+                <a href="V-Touch.html"><button>Informacion</button></a>
+            </div>
+            <div class="producto">
+                <img src="https://tuhumo.com/cdn/shop/files/Diseno_sin_titulo-29.png?v=1732824437&width=600" width="150" alt="Producto 2">
+                <h3>Rabeatts</h3>
+                <p>10,000 hits</p>
+                <p>$200</p>
+                <a href="Waka 28k.html"><button>Informacion</button></a>
+            </div>
+            <div class="producto">
+                <img src="https://tuhumo.com/cdn/shop/files/h1_Elvapemasnuevo_h1pstrongPreciossegunlacantidaddeproductoscombinableconotrasmarcas.strongptabletheadtrthCANTIDADththPRECIOthtrtheadtbodytrtd20_tdtd_Xtdtrtrtd35_td.png?v=1727325832&width=600" width="150" alt="Producto 2">
+                <h3>Snoopy Smoke</h3>
+                <p>15,000 hits</p>
+                <p>$250</p>
+                <a href="Elfbar.html"><button>Informacion</button></a>
+            </div>
+            <div class="producto">
+                <img src="https://tuhumo.com/cdn/shop/files/Diseno_sin_titulo_-_2024-11-24T114303.637.png?v=1732470203&width=600" width="150" alt="Producto 2">
+                <h3>Juice King</h3>
+                <p>18,000 hits</p>
+                <p>$275</p>
+                <a href="Waka 15k.html"><button>Informacion</button></a>
+            </div>
+            <div class="producto">
+                <img src="https://tuhumo.com/cdn/shop/files/VAPE-3.png?v=1727372628&width=600" width="150" alt="Producto 2">
+                <h3>Moti </h3>
+                <p>20,000 hits</p>
+                <p>$300</p>
+                <a href="Waka 18k.html"><button>Informacion</button></a>
+            </div>
+            <div class="producto">
+                <img src="https://tuhumo.com/cdn/shop/files/Copia_de_Diseno_sin_titulo-8.png?v=1730303730&width=600" width="150" alt="Producto 2">
+                <h3>True Story </h3>
+                <p>20,000 hits</p>
+                <p>$300</p>
+                <a href="Wave Turbo.html"><button>Informacion</button></a>
+            </div>
+            <div class="producto">
+                <img src="https://tuhumo.com/cdn/shop/files/Diseno_sin_titulo-81.png?v=1740116996&width=600" width="150" alt="Producto 2">
+                <h3>Smart TC</h3>
+                <p>25,000 hits</p>
+                <p>$350</p>
+                <a href="Wonder G20 Touch.html"><button>Informacion</button></a>
+            </div>
+            <div class="producto">
+                <img src="https://tuhumo.com/cdn/shop/files/Disenosintitulo-2024-11-24T120026.578.png?v=1732471424&width=600" width="150" alt="Producto 2">
+                <h3>Swype</h3>
+                <p>30,000 hits</p>
+                <p>$400</p>
+                <a href="Waka 10k.html"><button>Informacion</button></a>
+            </div>
+            <div class="producto">
+                <img src="https://tuhumo.com/cdn/shop/files/rodean_9900-4.png?v=1727367008&width=600" width="150" alt="Producto 2">
+                <h3>Equator</h3>
+                <p>30,000 hits</p>
+                <p>$400</p>
+                <a href="Cold Steel.html"><button>Informacion</button></a>
+            </div>
+            <div class="producto">
+                <img src="https://vapesgustavo.com/cdn/shop/files/NATACT.png?v=1720490695" width="150" alt="Producto 2">
+                <h3>CT</h3>
+                <p>??? hits</p>
+                <p>$???</p>
+                <a href="tupu.html"><button>Proximamente</button></a>
+            </div>
+            
+            
+            <!-- Agrega más productos según sea necesario -->
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Vape Store. Todos los derechos reservados.</p>
+        
+    </footer>
+</body>
+</html>
